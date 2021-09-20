@@ -215,6 +215,8 @@ def _get_parser():
 
 if __name__ == "__main__":
     parser = _get_parser()
-
-    opt = parser.parse_args()
-    main(opt)
+    try:
+        opt = parser.parse_args()
+        main(opt)
+    except Exception as e:
+        logger.error('An exception occurred: {}'.format(e))
